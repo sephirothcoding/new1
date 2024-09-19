@@ -8,7 +8,8 @@
         body {
             margin: 0;
             height: 100vh;
-            background-color: black;
+            background: url('https://xatimg.com/image/UgqpCyZDwfF2.png') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -43,27 +44,41 @@
             to { background-position: 100% 50%; }
         }
 
-        /* Glowing box */
+        /* Glowing rainbow box */
         .glow-box {
             margin-top: 20px;
             padding: 20px;
             font-size: 1.5rem;
-            color: white;
             text-align: center;
             background-color: transparent;
-            border: 2px solid white;
             width: 300px;
             margin-left: auto;
             margin-right: auto;
-            animation: glow 2s infinite alternate;
+            border-radius: 10px;
+            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+            animation: glow 2s infinite alternate, rainbowGlow 5s infinite linear;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         @keyframes glow {
             0% {
-                box-shadow: 0 0 10px white;
+                box-shadow: 0 0 10px red;
             }
             100% {
-                box-shadow: 0 0 20px white, 0 0 30px white;
+                box-shadow: 0 0 20px violet, 0 0 30px cyan;
+            }
+        }
+
+        @keyframes rainbowGlow {
+            0% {
+                border: 2px solid red;
+            }
+            50% {
+                border: 2px solid violet;
+            }
+            100% {
+                border: 2px solid cyan;
             }
         }
 
