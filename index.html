@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Rainbow Text</title>
+    <title>Fluid Rainbow Text with Butterfly</title>
     <style>
         body {
             margin: 0;
@@ -12,6 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             font-family: Arial, sans-serif;
         }
 
@@ -19,40 +20,78 @@
             font-size: 5rem;
             font-style: italic;
             color: #fff;
-            overflow: hidden; /* Hides the content after animation ends */
+            overflow: hidden;
             white-space: nowrap;
-            border-right: 0.15em solid #fff; /* Simulate a cursor */
-            animation: typing 4s steps(7), blink-caret 0.75s step-end infinite;
             background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
             -webkit-background-clip: text;
             color: transparent;
+            animation: rainbowText 5s linear forwards;
         }
 
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 7ch; } /* Number of characters to display */
+        @keyframes rainbowText {
+            0% { width: 0; }
+            100% { width: 100%; }
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
+        /* Butterfly animation */
+        .butterfly {
+            position: absolute;
+            bottom: 10%;
+            left: -10%;
+            width: 50px;
+            height: 50px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Butterfly_icon.png') no-repeat center;
+            background-size: contain;
+            animation: fly 10s ease-in-out infinite;
         }
 
-        @keyframes rainbow {
-            0% { color: red; }
-            14% { color: orange; }
-            28% { color: yellow; }
-            42% { color: green; }
-            57% { color: cyan; }
-            71% { color: blue; }
-            85% { color: violet; }
-            100% { color: red; }
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(200px, -100px) rotate(20deg);
+            }
+            50% {
+                transform: translate(400px, 50px) rotate(-20deg);
+            }
+            75% {
+                transform: translate(600px, -150px) rotate(30deg);
+            }
+            100% {
+                transform: translate(800px, 0) rotate(0deg);
+            }
+        }
+
+        /* Additional butterfly wing flap animation */
+        .butterfly::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 50px;
+            height: 50px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/73/Butterfly_icon.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.5;
+            transform-origin: center;
+            animation: wingFlap 0.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes wingFlap {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.2);
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="typewriter" id="typewriter">Azuro</div>
+    <div class="butterfly"></div>
 
 </body>
 </html>
