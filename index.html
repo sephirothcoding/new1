@@ -3,149 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Designer Portfolio</title>
+    <title>Animated Rainbow Text</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background-color: #2f2f2f;
-            font-family: Arial, sans-serif;
-            color: #fff;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            padding: 30px;
-        }
-
-        .box {
-            background-color: #111;
-            border: 2px solid #00f0ff;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s ease, background-color 0.4s ease;
-        }
-
-        .box img, .box iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .box h3 {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
             margin: 0;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .typewriter {
+            font-size: 5rem;
+            font-style: italic;
             color: #fff;
-            font-size: 1.2em;
+            overflow: hidden; /* Hides the content after animation ends */
+            white-space: nowrap;
+            border-right: 0.15em solid #fff; /* Simulate a cursor */
+            animation: typing 4s steps(7), blink-caret 0.75s step-end infinite;
+            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        .box:hover {
-            transform: translateY(-10px);
-            background-color: #1b1b1b;
-            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.5);
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 7ch; } /* Number of characters to display */
         }
 
-        .box:hover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
-            z-index: 1;
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
         }
 
-        /* Animation for each box */
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 10px #00f0ff, 0 0 40px #00f0ff, 0 0 80px #00f0ff;
-            }
-            50% {
-                box-shadow: 0 0 20px #ff0fff, 0 0 60px #ff00ff, 0 0 100px #ff00ff;
-            }
-        }
-
-        .box:hover {
-            animation: pulse 2s infinite;
-        }
-
-        .box-content {
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        nav a {
-            color: #00f0ff;
-            text-decoration: none;
-            font-size: 1.5em;
-            margin: 0 20px;
-        }
-
-        nav a:hover {
-            color: #ff00ff;
-            text-shadow: 0px 0px 5px #ff00ff;
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: cyan; }
+            71% { color: blue; }
+            85% { color: violet; }
+            100% { color: red; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Images</a>
-        <a href="#">Code</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <div class="container">
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="Design Image">
-            <h3>Project 1</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="Code Snippet">
-            <h3>Code Project</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="Creative Work">
-            <h3>Graphic Design</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="Portfolio">
-            <h3>Portfolio</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="Project">
-            <h3>Project 5</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="Code">
-            <h3>Developer Work</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="UI Design">
-            <h3>UI Design</h3>
-        </div>
-        <div class="box">
-            <img src="https://via.placeholder.com/150" alt="3D Design">
-            <h3>3D Graphics</h3>
-        </div>
-    </div>
+    <div class="typewriter" id="typewriter">Azuro</div>
 
 </body>
 </html>
